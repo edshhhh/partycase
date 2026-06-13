@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кюттер Елена — Аниматор</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <style>
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cream: #FFEAD1;
+            --blue: #5A63EE;
+            --dark: #1a1a1a;
+            --white: #ffffff;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .ticker-wrap {
+            background: var(--blue);
+            padding: 12px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .ticker-track {
+            display: inline-block;
+            animation: tickerMove 30s linear infinite;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+
+        .ticker-dark {
+            background: var(--dark);
+            padding: 12px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .ticker-dark .ticker-track {
+            color: var(--cream);
+            animation-duration: 35s;
+        }
+
+        @keyframes tickerMove {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .section-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--blue);
+            opacity: 0.4;
+        }
+
+        .preheader {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 40px 80px;
+            border-bottom: 2px solid var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .preheader-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 36px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards 0.2s;
+        }
+
+        .preheader-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(40px, 8vw, 120px);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.92;
+            letter-spacing: -3px;
+            color: var(--dark);
+        }
+
+        .preheader-title .line {
+            display: block;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .preheader-title .line-1 { animation: fadeUp 0.7s ease forwards 0.4s; }
+        .preheader-title .line-2 { animation: fadeUp 0.7s ease forwards 0.6s; }
+        .preheader-title .line-3 { animation: fadeUp 0.7s ease forwards 0.8s; }
+
+        .preheader-title .word-blue {
+            color: var(--blue);
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--blue);
+            margin: 0 14px;
+            vertical-align: middle;
+        }
+
+        .preheader-scroll {
+            position: absolute;
+            bottom: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards 1.2s;
+        }
+
+        .preheader-scroll span {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #999;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 50px;
+            background: linear-gradient(to bottom, var(--blue), transparent);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 2px solid var(--dark);
+            min-height: 80vh;
+        }
+
+        .about-content {
+            padding: 80px 60px;
+            border-right: 2px solid var(--dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 4vw, 62px);
+            font-weight: 900;
+            line-height: 1;
+            color: var(--dark);
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .about-role {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--blue);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(90,99,238,0.2);
+        }
+
+        .about-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .about-list li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            min-width: 8px;
+            border-radius: 50%;
+            background: var(--blue);
+            margin-top: 9px;
+            flex-shrink: 0;
+        }
+
+        .about-photo-wrap {
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        .about-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .about-photo-wrap:hover .about-photo {
+            transform: scale(1.03);
+        }
+
+        .about-photo-label {
+            position: absolute;
+            bottom: 28px;
+            left: 28px;
+            background: var(--cream);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dark);
+        }
+
+        .programs-header {
+            padding: 80px 60px 50px;
+            border-bottom: 2px solid var(--dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 40px;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(38px, 5vw, 76px);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 0.92;
+            color: var(--dark);
+        }
+
+        .programs-header-right {
+            max-width: 280px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #888;
+            line-height: 1.75;
+            text-align: right;
+        }
+
+        .program-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 2px solid var(--dark);
+            min-height: 520px;
+        }
+
+        .program-card.reverse { direction: rtl; }
+        .program-card.reverse > * { direction: ltr; }
+
+        .program-photo-wrap {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .program-photo-wrap:hover .program-photo {
+            transform: scale(1.04);
+        }
+
+        .program-num-overlay {
+            position: absolute;
+            bottom: 16px;
+            right: 20px;
+            font-size: 90px;
+            font-weight: 900;
+            color: var(--white);
+            opacity: 0.15;
+            line-height: 1;
+            pointer-events: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .program-content {
+            padding: 55px 50px;
+            border-left: 2px solid var(--dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--cream);
+        }
+
+        .program-card.reverse .program-content {
+            border-left: none;
+            border-right: 2px solid var(--dark);
+        }
+
+        .program-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 14px;
+        }
+
+        .program-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(24px, 2.8vw, 42px);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: -1.5px;
+            color: var(--dark);
+            margin-bottom: 28px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .program-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .program-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .marker {
+            width: 22px;
+            height: 22px;
+            min-width: 22px;
+            background: var(--blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1px;
+            flex-shrink: 0;
+        }
+
+        .marker svg {
+            width: 7px;
+            height: 7px;
+            fill: var(--white);
+        }
+
+        .custom-banner {
+            background: var(--blue);
+            padding: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            border-bottom: 2px solid var(--dark);
+        }
+
+        .custom-banner-text { color: var(--white); }
+
+        .custom-banner-text h3 {
+            font-size: clamp(20px, 3vw, 36px);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+
+        .custom-banner-text p {
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0.85;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        .custom-banner-btn {
+            background: var(--cream);
+            color: var(--dark);
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .custom-banner-btn:hover {
+            transform: translateY(-3px);
+            background: var(--white);
+        }
+
+        .services-header {
+            padding: 80px 60px 50px;
+            border-bottom: 2px solid var(--dark);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .service-card {
+            padding: 44px 38px;
+            border-right: 2px solid var(--dark);
+            border-bottom: 2px solid var(--dark);
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+        }
+
+        .service-card:nth-child(3n) { border-right: none; }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--blue);
+            transform: translateY(100%);
+            transition: transform 0.35s ease;
+            z-index: 0;
+        }
+
+        .service-card:hover::before { transform: translateY(0); }
+        .service-card > * { position: relative; z-index: 1; }
+
+        .service-num {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--blue);
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            transition: color 0.35s ease;
+        }
+
+        .service-card:hover .service-num { color: rgba(255,255,255,0.5); }
+
+        .service-icon {
+            font-size: 32px;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .service-title {
+            font-size: 17px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.3px;
+            margin-bottom: 12px;
+            color: var(--dark);
+            transition: color 0.35s ease;
+        }
+
+        .service-card:hover .service-title { color: var(--white); }
+
+        .service-desc {
+            font-size: 15px;
+            font-weight: 500;
+            color: #555;
+            line-height: 1.7;
+            transition: color 0.35s ease;
+        }
+
+        .service-card:hover .service-desc { color: rgba(255,255,255,0.85); }
+
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-top: 2px solid var(--dark);
+            min-height: 60vh;
+        }
+
+        .contact-left {
+            padding: 80px 60px;
+            border-right: 2px solid var(--dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .contact-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(40px, 6vw, 90px);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: -3px;
+            color: var(--dark);
+        }
+
+        .contact-title span {
+            color: var(--blue);
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .contact-sub {
+            font-size: 16px;
+            font-weight: 500;
+            color: #777;
+            line-height: 1.8;
+            max-width: 380px;
+            margin-top: 22px;
+        }
+
+        .contact-signature {
+            font-size: 12px;
+            font-weight: 600;
+            color: #bbb;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .contact-right {
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .contact-phone-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 8px;
+        }
+
+        .contact-phone {
+            font-size: clamp(24px, 3.5vw, 44px);
+            font-weight: 900;
+            letter-spacing: -1px;
+            color: var(--dark);
+            text-decoration: none;
+            display: block;
+            transition: color 0.2s ease;
+        }
+
+        .contact-phone:hover { color: var(--blue); }
+
+        .contact-divider {
+            height: 1px;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .contact-icons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .contact-icon-btn {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            border: 2px solid var(--dark);
+            color: var(--dark);
+            background: var(--cream);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .contact-icon-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .contact-icon-btn.filled {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: var(--white);
+        }
+
+        .contact-icon-btn.filled:hover {
+            box-shadow: 0 8px 24px rgba(90,99,238,0.4);
+        }
+
+        .contact-icon-btn svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .footer {
+            background: var(--dark);
+            padding: 34px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            font-size: 16px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            color: var(--cream);
+        }
+
+        .footer-logo span { color: var(--blue); }
+
+        .footer-copy {
+            font-size: 12px;
+            font-weight: 500;
+            color: #555;
+            letter-spacing: 1px;
+        }
+
+        .footer-back {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-back:hover { color: var(--blue); }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== TABLET ===== */
+        @media (max-width: 900px) {
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                border-right: none;
+                border-bottom: 2px solid var(--dark);
+                padding: 50px 28px;
+            }
+
+            .about-role { font-size: 11px; }
+            .about-list li { font-size: 15px; }
+            .about-photo-wrap { min-height: 420px; }
+
+            .programs-header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 50px 28px 40px;
+                gap: 20px;
+            }
+
+            .programs-header-right {
+                text-align: left;
+                max-width: 100%;
+            }
+
+            .program-card,
+            .program-card.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                min-height: auto;
+            }
+
+            .program-photo-wrap { min-height: 300px; }
+
+            .program-content {
+                border-left: none !important;
+                border-right: none !important;
+                border-top: 2px solid var(--dark);
+                padding: 40px 28px;
+            }
+
+            .program-list li { font-size: 15px; }
+
+            .custom-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 40px 28px;
+                gap: 28px;
+            }
+
+            .custom-banner-btn {
+                width: 100%;
+                text-align: center;
+                padding: 18px 28px;
+            }
+
+            .services-header { padding: 50px 28px 40px; }
+
+            .services-grid { grid-template-columns: 1fr 1fr; }
+
+            .service-card { padding: 32px 24px; }
+
+            .service-card:nth-child(3n) { border-right: 2px solid var(--dark); }
+            .service-card:nth-child(2n) { border-right: none; }
+
+            .contact-section { grid-template-columns: 1fr; }
+
+            .contact-left {
+                border-right: none;
+                border-bottom: 2px solid var(--dark);
+                padding: 50px 28px;
+            }
+
+            .contact-right { padding: 50px 28px; }
+
+            .contact-title {
+                font-size: clamp(42px, 9vw, 80px);
+                letter-spacing: -2px;
+            }
+
+            .footer {
+                padding: 28px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+            }
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 600px) {
+
+            .preheader { padding: 80px 24px; }
+            .preheader-title { letter-spacing: -1.5px; }
+
+            .dot {
+                width: 7px;
+                height: 7px;
+                margin: 0 8px;
+            }
+
+            .about-content { padding: 40px 20px; }
+            .about-list li { font-size: 14px; }
+            .about-photo-wrap { min-height: 320px; }
+
+            .programs-header { padding: 40px 20px 32px; }
+            .program-photo-wrap { min-height: 240px; }
+            .program-content { padding: 32px 20px; }
+            .program-list li { font-size: 14px; }
+
+            .custom-banner { padding: 32px 20px; }
+            .custom-banner-text p { font-size: 14px; }
+
+            .services-header { padding: 40px 20px 32px; }
+
+            .services-grid { grid-template-columns: 1fr; }
+
+            .service-card {
+                border-right: none !important;
+                border-bottom: 2px solid var(--dark);
+                padding: 28px 20px;
+            }
+
+            .service-card:last-child { border-bottom: none; }
+
+            .contact-left { padding: 40px 20px; }
+            .contact-right { padding: 40px 20px; }
+
+            .contact-title {
+                font-size: clamp(36px, 11vw, 60px);
+                letter-spacing: -1.5px;
+            }
+
+            .contact-sub { font-size: 14px; }
+            .contact-phone { font-size: clamp(22px, 7vw, 36px); }
+
+            .contact-icons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .contact-icon-btn {
+                justify-content: center;
+                padding: 14px 20px;
+                font-size: 13px;
+            }
+
+            .footer { padding: 24px 20px; }
+            .footer-copy { font-size: 11px; }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="ticker-wrap">
+    <span class="ticker-track">
+        ✦ АНИМАТОР ✦ ПЕДАГОГ ✦ ОРГАНИЗАТОР МЕРОПРИЯТИЙ ✦ ДЕТСКИЕ ПРАЗДНИКИ ✦ АКТЕРСКОЕ МАСТЕРСТВО ✦ КЮТТЕР ЕЛЕНА ✦ АНИМАТОР ✦ ПЕДАГОГ ✦ ОРГАНИЗАТОР МЕРОПРИЯТИЙ ✦ ДЕТСКИЕ ПРАЗДНИКИ ✦ АКТЕРСКОЕ МАСТЕРСТВО ✦ КЮТТЕР ЕЛЕНА ✦
+    </span>
+</div>
+
+<section class="preheader">
+    <p class="preheader-tag">✦ Кюттер Елена — 2024 ✦</p>
+    <h1 class="preheader-title">
+        <span class="line line-1">ПРАЗДНИКИ<span class="dot"></span></span>
+        <span class="line line-2"><span class="word-blue">Актёрское</span></span>
+        <span class="line line-3">МАСТЕРСТВО<span class="dot"></span>МЕРОПРИЯТИЯ</span>
+    </h1>
+    <div class="preheader-scroll">
+        <div class="scroll-line"></div>
+        <span>Листай вниз</span>
+    </div>
+</section>
+
+<div class="ticker-dark">
+    <span class="ticker-track">
+        ✦ ПИРАТЫ ✦ АЛИСА В СТРАНЕ ЧУДЕС ✦ МАЛАНЬЯ ✦ МАЛИФИСЕНТА ✦ ПРАЗДНИКИ ДЛЯ ДЕТЕЙ ✦ МЕРОПРИЯТИЯ ДЛЯ ВЗРОСЛЫХ ✦ ШОУ МЫЛЬНЫХ ПУЗЫРЕЙ ✦ ГРИМ ✦ ПИРАТЫ ✦ АЛИСА В СТРАНЕ ЧУДЕС ✦ МАЛАНЬЯ ✦ МАЛИФИСЕНТА ✦ ПРАЗДНИКИ ДЛЯ ДЕТЕЙ ✦ МЕРОПРИЯТИЯ ДЛЯ ВЗРОСЛЫХ ✦ ШОУ МЫЛЬНЫХ ПУЗЫРЕЙ ✦ ГРИМ ✦
+    </span>
+</div>
+
+<section class="about" id="about">
+    <div class="about-content reveal">
+        <p class="section-label">01 — Обо мне</p>
+        <h2 class="about-name">Кюттер<br>Елена</h2>
+        <p class="about-role">Аниматор · Педагог доп. образования · Организатор мероприятий</p>
+        <ul class="about-list">
+            <li>Высшее образование по специальности организатора праздников и мероприятий</li>
+            <li>Преподавание актёрского мастерства в частной школе с детьми разных возрастов</li>
+            <li>Организация детских праздников, выездов, мероприятий</li>
+            <li>Организация мероприятий для взрослых, оригинальные поздравления, сценарии праздников</li>
+        </ul>
+    </div>
+    <div class="about-photo-wrap">
+        <img src="foto1.jpg" alt="Кюттер Елена" class="about-photo">
+        <div class="about-photo-label">✦ Аниматор & Педагог</div>
+    </div>
+</section><section id="programs">
+
+    <div class="programs-header reveal">
+        <div>
+            <p class="section-label">02 — Программы</p>
+            <h2 class="section-title">ПРАЗДНИКИ<br>ДЛЯ ДЕТЕЙ</h2>
+        </div>
+        <p class="programs-header-right">
+            Каждая программа — это полноценное театральное приключение с уникальным сюжетом, костюмами и интерактивными заданиями.
+        </p>
+    </div>
+
+    <div class="program-card reveal">
+        <div class="program-photo-wrap">
+            <img src="foto2.jpg" alt="Пираты" class="program-photo">
+            <div class="program-num-overlay">01</div>
+        </div>
+        <div class="program-content">
+            <p class="program-tag">✦ Программа 01</p>
+            <h3 class="program-title">Захват корабля<br>и поиск сокровищ</h3>
+            <ul class="program-list">
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Посвящение в пиратскую команду</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Морские испытания</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Поиск частей карты сокровищ</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Задания на ловкость и смекалку</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Охота за спрятанными сокровищами</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Открытие сундука с добычей</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="program-card reverse reveal">
+        <div class="program-photo-wrap">
+            <img src="foto3.jpg" alt="Алиса" class="program-photo">
+            <div class="program-num-overlay">02</div>
+        </div>
+        <div class="program-content">
+            <p class="program-tag">✦ Программа 02</p>
+            <h3 class="program-title">Алиса в стране<br>чудес</h3>
+            <ul class="program-list">
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Безумное чаепитие с заданиями</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Игры «наоборот» и чудные загадки</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Испытания от Королевы</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Поиск пропавших улик</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Королевское награждение</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="program-card reveal">
+        <div class="program-photo-wrap">
+            <img src="foto4.jpg" alt="Маланья" class="program-photo">
+            <div class="program-num-overlay">03</div>
+        </div>
+        <div class="program-content">
+            <p class="program-tag">✦ Программа 03</p>
+            <h3 class="program-title">Маланья</h3>
+            <ul class="program-list">
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Путешествие в сказочный лес</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Встреча с древнерусскими персонажами</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Заклинания Бабы Яги</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Испытания от лесных духов</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Поиск древних самоцветов</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Сражение с драконом</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Спасение сказочной деревни</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="program-card reverse reveal">
+        <div class="program-photo-wrap">
+            <img src="foto5.jpg" alt="Малифисента" class="program-photo">
+            <div class="program-num-overlay">04</div>
+        </div>
+        <div class="program-content">
+            <p class="program-tag">✦ Программа 04</p>
+            <h3 class="program-title">Малифисента</h3>
+            <ul class="program-list">
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Поступление в школу магии</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Распределение на факультеты</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Изучение заклинаний и магических жестов</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Создание волшебных артефактов</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Урок зельеварения</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Командные испытания</li>
+                <li><span class="marker"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg></span>Посвящение в феи и магов</li>
+            </ul>
+        </div>
+    </div>
+
+</section>
+
+<div class="custom-banner reveal">
+    <div class="custom-banner-text">
+        <h3>Нужна своя программа?</h3>
+        <p>Разработаю уникальный сценарий под ваш праздник — с любимыми героями, тематикой и возрастом детей.</p>
+    </div>
+    <a href="tel:+79119300058" class="custom-banner-btn">Обсудить программу</a>
+</div>
+
+<section id="services">
+
+    <div class="services-header reveal">
+        <p class="section-label">03 — Услуги</p>
+        <h2 class="section-title">ЧТО Я<br>ПРЕДЛАГАЮ</h2>
+    </div>
+
+    <div class="services-grid">
+
+        <div class="service-card reveal">
+            <p class="service-num">01</p>
+            <span class="service-icon">🎭</span>
+            <h3 class="service-title">Детские праздники</h3>
+            <p class="service-desc">Тематические программы с костюмами, играми, конкурсами и сюжетными квестами для детей от 3 до 14 лет.</p>
+        </div>
+
+        <div class="service-card reveal">
+            <p class="service-num">02</p>
+            <span class="service-icon">🎬</span>
+            <h3 class="service-title">Актёрское мастерство</h3>
+            <p class="service-desc">Занятия в частной школе. Развитие речи, уверенности, эмоций и навыков публичного выступления.</p>
+        </div>
+
+        <div class="service-card reveal">
+            <p class="service-num">03</p>
+            <span class="service-icon">🎉</span>
+            <h3 class="service-title">Мероприятия для взрослых</h3>
+            <p class="service-desc">Корпоративы, юбилеи, тематические вечеринки. Оригинальные сценарии и ведение под ключ.</p>
+        </div>
+
+        <div class="service-card reveal">
+            <p class="service-num">04</p>
+            <span class="service-icon">🎪</span>
+            <h3 class="service-title">Выездные мероприятия</h3>
+            <p class="service-desc">Приеду к вам домой, в кафе, на природу или в любое другое место. Всё необходимое привезу с собой.</p>
+        </div>
+
+        <div class="service-card reveal">
+            <p class="service-num">05</p>
+            <span class="service-icon">🫧</span>
+            <h3 class="service-title">Шоу мыльных пузырей</h3>
+            <p class="service-desc">Яркое интерактивное шоу для детей и взрослых. Гигантские пузыри, туман и незабываемые эмоции.</p>
+        </div>
+
+        <div class="service-card reveal">
+            <p class="service-num">06</p>
+            <span class="service-icon">🎨</span>
+            <h3 class="service-title">Грим & Аквагрим</h3>
+            <p class="service-desc">Профессиональный детский грим и аквагрим. Любые образы — животные, супергерои, сказочные персонажи.</p>
+        </div>
+
+    </div>
+
+</section><section class="contact-section" id="contact">
+
+    <div class="contact-left reveal">
+        <div>
+            <p class="section-label">04 — Контакты</p>
+            <h2 class="contact-title">ДАВАЙТЕ<br><span>создадим</span><br>ПРАЗДНИК</h2>
+            <p class="contact-sub">Напишите или позвоните — обсудим формат, программу и все детали вашего мероприятия.</p>
+        </div>
+        <p class="contact-signature">Кюттер Елена · Аниматор & Организатор</p>
+    </div>
+
+    <div class="contact-right reveal">
+
+        <div>
+            <p class="contact-phone-label">✦ Телефон</p>
+            <a href="tel:+79119300058" class="contact-phone">+7 911 930-00-58</a>
+        </div>
+
+        <div class="contact-divider"></div>
+
+        <div>
+            <p class="contact-phone-label" style="margin-bottom:18px;">✦ Написать / позвонить</p>
+            <div class="contact-icons">
+
+                <a href="tel:+79119300058" class="contact-icon-btn filled">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+                    </svg>
+                    Позвонить
+                </a>
+
+                <a href="sms:+79119300058" class="contact-icon-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+                    </svg>
+                    SMS
+                </a>
+
+                <a href="https://wa.me/79119300058" target="_blank" class="contact-icon-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+
+                <a href="https://t.me/+79119300058" target="_blank" class="contact-icon-btn filled">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                    Telegram
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="footer">
+    <div class="footer-logo">Кюттер <span>Елена</span></div>
+    <p class="footer-copy">© 2024 · Аниматор · Педагог · Организатор мероприятий</p>
+    <a href="#" class="footer-back">↑ Наверх</a>
+</footer>
+
+<script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
